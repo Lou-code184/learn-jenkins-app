@@ -55,7 +55,7 @@ pipeline {
                     #run serve in background and wait 10 seconds
                     node_modules/.bin/serve -s build &
                     sleep 10
-                    npx playwright test
+                    npx playwright test --reporter=html
                 '''
             }
 
