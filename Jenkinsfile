@@ -22,7 +22,7 @@ pipeline {
         }
 
 
-        stage('Deploy') {
+        stage('Test') {
             parallel {
                 stage('Unit tests') {
                     agent {
@@ -70,7 +70,7 @@ pipeline {
                 }
             }
         }
-        stage('Build') {
+        stage('Deploy') {
             agent {
                 docker {
                     image 'node:18-alpine'
