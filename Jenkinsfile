@@ -92,6 +92,7 @@ pipeline {
                 '''
             }
         }
+
         stage('Prod E2E') {
             agent {
                 docker {
@@ -101,7 +102,7 @@ pipeline {
             }
             environment{
                 CI_ENVIRONMENT_URL = 'https://famous-madeleine-68026f.netlify.app'
-        }
+            }
 
             steps {
                 sh '''
@@ -111,7 +112,7 @@ pipeline {
 
             post {
                 always {
-                    publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'playwright-report', reportFiles: 'index.html', reportName: 'Playwright E2E HTML Report', reportTitles: '', useWrapperFileDirectly: true])
+                    publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'playwright-report', reportFiles: 'index.html', reportName: 'Playwright E2E', reportTitles: '', useWrapperFileDirectly: true])
                 }
             }
         }
